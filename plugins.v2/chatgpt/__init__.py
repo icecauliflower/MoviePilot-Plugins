@@ -434,7 +434,7 @@ class ChatGPT(_PluginBase):
         max_retries = len(self._api_keys)
 
         while retry_count < max_retries:
-            response = self.openai.get_media_name(filename=repr(event))
+            response = self.openai.get_media_name(filename=repr(event.__dict__))
             logger.info(f"ChatGPT返回结果：{response}")
 
             # 判断响应是否正常
